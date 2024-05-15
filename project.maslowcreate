@@ -12,6 +12,10 @@
         {
             "name": "distance",
             "ioValue": 10
+        },
+        {
+            "name": "shape",
+            "ioValue": 10
         }
     ],
     "topLevel": true,
@@ -25,10 +29,32 @@
             "ioValues": []
         },
         {
+            "atomType": "Code",
+            "name": "Code",
+            "x": 0.3951890034364261,
+            "y": 0.4796238244514106,
+            "uniqueID": 355736,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": 628961
+                },
+                {
+                    "name": "count",
+                    "ioValue": 10
+                },
+                {
+                    "name": "distance",
+                    "ioValue": 10
+                }
+            ],
+            "code": "//Inputs:[geometry, count, distance];\n\nlet shape = library[geometry].geometry[0]\n\nfunction polarCopies = (shape, count, x, y) => {\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n  \n\nreturn [polarCopies(library[inputID].geometry[0], count, x, y)]\n//what you return should be a replicad geometry\n\nLearn more about all of the available methods at \n https://replicad.xyz/docs/introapp/UserGuide.html \n"
+        },
+        {
             "atomType": "Input",
             "name": "distance",
             "x": 0.013333333333333334,
-            "y": 0.658307210031348,
+            "y": 0.799373040752351,
             "uniqueID": 642752,
             "ioValues": []
         },
@@ -41,33 +67,54 @@
             "ioValues": []
         },
         {
-            "atomType": "Code",
-            "name": "Code",
-            "x": 0.3951890034364261,
-            "y": 0.4796238244514106,
-            "uniqueID": 355736,
+            "atomType": "Input",
+            "name": "shape",
+            "x": 0.013333333333333334,
+            "y": 0.6394984326018809,
+            "uniqueID": 441375,
+            "ioValues": []
+        },
+        {
+            "atomType": "Rectangle",
+            "name": "Rectangle",
+            "x": 0.2943871706758305,
+            "y": 0.3103448275862069,
+            "uniqueID": 628961,
             "ioValues": [
                 {
-                    "name": "Input2",
+                    "name": "x length",
                     "ioValue": 10
                 },
                 {
-                    "name": "geometry",
-                    "ioValue": 10
-                },
-                {
-                    "name": "count",
-                    "ioValue": 10
-                },
-                {
-                    "name": "distance",
+                    "name": "y length",
                     "ioValue": 10
                 }
-            ],
-            "code": "//Inputs:[geometry, count, distance];\n\n\nreturn [drawRectangle(5,10)]\n//what you return should be a replicad geometry\n\nLearn more about all of the available methods at \n https://replicad.xyz/docs/introapp/UserGuide.html \n"
+            ]
         }
     ],
-    "allConnectors": [],
+    "allConnectors": [
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "count",
+            "ap2Primary": false,
+            "ap1ID": 987307,
+            "ap2ID": 355736
+        },
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "distance",
+            "ap2Primary": false,
+            "ap1ID": 642752,
+            "ap2ID": 355736
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": false,
+            "ap1ID": 628961,
+            "ap2ID": 355736
+        }
+    ],
     "fileTypeVersion": 1,
     "unitsIndex": 0,
     "filetypeVersion": 1
