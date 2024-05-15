@@ -38,6 +38,23 @@
             ]
         },
         {
+            "atomType": "Extrude",
+            "name": "Extrude",
+            "x": 0.3734249713631157,
+            "y": 0.20689655172413796,
+            "uniqueID": 922979,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": 628961
+                },
+                {
+                    "name": "height",
+                    "ioValue": 10
+                }
+            ]
+        },
+        {
             "atomType": "Input",
             "name": "count",
             "x": 0.013333333333333334,
@@ -46,10 +63,18 @@
             "ioValues": []
         },
         {
+            "atomType": "Input",
+            "name": "shape",
+            "x": 0.013333333333333334,
+            "y": 0.6394984326018809,
+            "uniqueID": 441375,
+            "ioValues": []
+        },
+        {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5269186712485682,
-            "y": 0.4984326018808777,
+            "x": 0.5819014891179839,
+            "y": 0.5203761755485894,
             "uniqueID": 355736,
             "ioValues": [
                 {
@@ -65,15 +90,7 @@
                     "ioValue": 922979
                 }
             ],
-            "code": "//Inputs:[geometry1, count, distance];\n\n\nfunction polarCopies(shape, count, x, y){\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n  \n\nreturn [polarCopies(library[geometry1].geometry[0], count, x, y)]\n//what you return should be a replicad geometry\n\nLearn more about all of the available methods at \n https://replicad.xyz/docs/introapp/UserGuide.html \n"
-        },
-        {
-            "atomType": "Input",
-            "name": "shape",
-            "x": 0.013333333333333334,
-            "y": 0.6394984326018809,
-            "uniqueID": 441375,
-            "ioValues": []
+            "code": "//Inputs:[geometry1, count, distance];\n\nfunction polarCopies(shape, count, x, y){\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n  \nlet result = polarCopies(library[geometry1].geometry[0], count, x, y)\nconsole.log(result)\nreturn [result]\n\n//what you return should be a replicad geometry\n\nLearn more about all of the available methods at \n https://replicad.xyz/docs/introapp/UserGuide.html \n"
         },
         {
             "atomType": "Input",
@@ -90,23 +107,6 @@
             "y": 0.5,
             "uniqueID": 842195,
             "ioValues": []
-        },
-        {
-            "atomType": "Extrude",
-            "name": "Extrude",
-            "x": 0.3734249713631157,
-            "y": 0.20689655172413796,
-            "uniqueID": 922979,
-            "ioValues": [
-                {
-                    "name": "geometry",
-                    "ioValue": 628961
-                },
-                {
-                    "name": "height",
-                    "ioValue": 10
-                }
-            ]
         }
     ],
     "allConnectors": [
@@ -116,6 +116,13 @@
             "ap2Primary": true,
             "ap1ID": 628961,
             "ap2ID": 922979
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry1",
+            "ap2Primary": false,
+            "ap1ID": 922979,
+            "ap2ID": 355736
         },
         {
             "ap1Name": "number or geometry",
@@ -129,13 +136,6 @@
             "ap2Name": "distance",
             "ap2Primary": false,
             "ap1ID": 642752,
-            "ap2ID": 355736
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "geometry1",
-            "ap2Primary": false,
-            "ap1ID": 922979,
             "ap2ID": 355736
         }
     ],
