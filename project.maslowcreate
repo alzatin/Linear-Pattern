@@ -38,6 +38,14 @@
             ]
         },
         {
+            "atomType": "Input",
+            "name": "count",
+            "x": 0.013333333333333334,
+            "y": 0.4482758620689655,
+            "uniqueID": 987307,
+            "ioValues": []
+        },
+        {
             "atomType": "Extrude",
             "name": "Extrude",
             "x": 0.3951890034364261,
@@ -53,14 +61,6 @@
                     "ioValue": 10
                 }
             ]
-        },
-        {
-            "atomType": "Input",
-            "name": "count",
-            "x": 0.013333333333333334,
-            "y": 0.4482758620689655,
-            "uniqueID": 987307,
-            "ioValues": []
         },
         {
             "atomType": "Input",
@@ -118,17 +118,17 @@
             "ap2ID": 922979
         },
         {
-            "ap1Name": "geometry",
-            "ap2Name": "geometry1",
-            "ap2Primary": false,
-            "ap1ID": 922979,
-            "ap2ID": 355736
-        },
-        {
             "ap1Name": "number or geometry",
             "ap2Name": "count",
             "ap2Primary": false,
             "ap1ID": 987307,
+            "ap2ID": 355736
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry1",
+            "ap2Primary": false,
+            "ap1ID": 922979,
             "ap2ID": 355736
         },
         {
