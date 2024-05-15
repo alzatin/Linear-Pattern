@@ -10,11 +10,11 @@
             "ioValue": 10
         },
         {
-            "name": "distance",
+            "name": "shape",
             "ioValue": 10
         },
         {
-            "name": "shape",
+            "name": "distance",
             "ioValue": 10
         }
     ],
@@ -23,8 +23,8 @@
         {
             "atomType": "Rectangle",
             "name": "Rectangle",
-            "x": 0.29095074455899195,
-            "y": 0.30094043887147337,
+            "x": 0.23825887743413515,
+            "y": 0.27899686520376177,
             "uniqueID": 628961,
             "ioValues": [
                 {
@@ -40,8 +40,8 @@
         {
             "atomType": "Extrude",
             "name": "Extrude",
-            "x": 0.3734249713631157,
-            "y": 0.20689655172413796,
+            "x": 0.39747995418098514,
+            "y": 0.3385579937304075,
             "uniqueID": 922979,
             "ioValues": [
                 {
@@ -73,10 +73,14 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5819014891179839,
-            "y": 0.5203761755485894,
+            "x": 0.5807560137457045,
+            "y": 0.4952978056426332,
             "uniqueID": 355736,
             "ioValues": [
+                {
+                    "name": "geometry1",
+                    "ioValue": 922979
+                },
                 {
                     "name": "count",
                     "ioValue": 10
@@ -84,13 +88,9 @@
                 {
                     "name": "distance",
                     "ioValue": 10
-                },
-                {
-                    "name": "geometry1",
-                    "ioValue": 922979
                 }
             ],
-            "code": "//Inputs:[geometry1, count, distance]\n\nfunction polarCopies(shape, count, x){\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * x));\n      }\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n  \nlet result = polarCopies(library[geometry1].geometry[0], count, distance)\nconsole.log(result)\nreturn [drawRectangle(10,19)]\n\n//what you return should be a replicad geometry\n\nLearn more about all of the available methods at \n https://replicad.xyz/docs/introapp/UserGuide.html \n"
+            "code": "//Inputs:[geometry1, count, distance]\n\n\n  \n//let result = polarCopies(library[geometry1].geometry[0])\nconsole.log(result)\nreturn [result]\n"
         },
         {
             "atomType": "Input",
