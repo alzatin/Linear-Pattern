@@ -4,9 +4,39 @@
     "x": 0,
     "y": 0,
     "uniqueID": 117165,
-    "ioValues": [],
+    "ioValues": [
+        {
+            "name": "mo",
+            "ioValue": 10
+        }
+    ],
     "topLevel": true,
-    "allAtoms": [],
+    "allAtoms": [
+        {
+            "atomType": "Output",
+            "name": "Output",
+            "x": 0.98,
+            "y": 0.5,
+            "uniqueID": 842195,
+            "ioValues": []
+        },
+        {
+            "atomType": "Input",
+            "name": "name",
+            "x": 0.013333333333333334,
+            "y": 0.4482758620689655,
+            "uniqueID": 987307,
+            "ioValues": []
+        },
+        {
+            "atomType": "Input",
+            "name": "mo",
+            "x": 0.013333333333333334,
+            "y": 0.658307210031348,
+            "uniqueID": 642752,
+            "ioValues": []
+        }
+    ],
     "allConnectors": [],
     "fileTypeVersion": 1,
     "unitsIndex": 0,
