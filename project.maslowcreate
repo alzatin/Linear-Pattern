@@ -90,7 +90,7 @@
                     "ioValue": 922979
                 }
             ],
-            "code": "//Inputs:[geometry1, count, distance];\n\nfunction polarCopies(shape, count, x, y){\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n  \nlet result = polarCopies(library[geometry1].geometry[0], count, x, y)\nconsole.log(result)\nreturn [result]\n\n//what you return should be a replicad geometry\n\nLearn more about all of the available methods at \n https://replicad.xyz/docs/introapp/UserGuide.html \n"
+            "code": "//Inputs:[geometry1, count, distance]\n\nfunction polarCopies(shape, count, x){\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * x));\n      }\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n  \nlet result = polarCopies(library[geometry1].geometry[0], count, distance)\nconsole.log(result)\nreturn [drawRectangle(10,19)]\n\n//what you return should be a replicad geometry\n\nLearn more about all of the available methods at \n https://replicad.xyz/docs/introapp/UserGuide.html \n"
         },
         {
             "atomType": "Input",
