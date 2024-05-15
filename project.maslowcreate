@@ -79,7 +79,7 @@
             "ioValues": [
                 {
                     "name": "geometry1",
-                    "ioValue": 922979
+                    "ioValue": 10
                 },
                 {
                     "name": "count",
@@ -106,7 +106,12 @@
             "x": 0.98,
             "y": 0.5,
             "uniqueID": 842195,
-            "ioValues": []
+            "ioValues": [
+                {
+                    "name": "number or geometry",
+                    "ioValue": 355736
+                }
+            ]
         }
     ],
     "allConnectors": [
@@ -125,11 +130,18 @@
             "ap2ID": 355736
         },
         {
-            "ap1Name": "geometry",
+            "ap1Name": "number or geometry",
             "ap2Name": "geometry1",
             "ap2Primary": false,
-            "ap1ID": 922979,
+            "ap1ID": 441375,
             "ap2ID": 355736
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "number or geometry",
+            "ap2Primary": false,
+            "ap1ID": 355736,
+            "ap2ID": 842195
         },
         {
             "ap1Name": "number or geometry",
