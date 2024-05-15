@@ -6,7 +6,11 @@
     "uniqueID": 117165,
     "ioValues": [
         {
-            "name": "mo",
+            "name": "count",
+            "ioValue": 10
+        },
+        {
+            "name": "distance",
             "ioValue": 10
         }
     ],
@@ -14,7 +18,7 @@
     "allAtoms": [
         {
             "atomType": "Input",
-            "name": "name",
+            "name": "count",
             "x": 0.013333333333333334,
             "y": 0.4482758620689655,
             "uniqueID": 987307,
@@ -22,7 +26,7 @@
         },
         {
             "atomType": "Input",
-            "name": "mo",
+            "name": "distance",
             "x": 0.013333333333333334,
             "y": 0.658307210031348,
             "uniqueID": 642752,
@@ -35,6 +39,32 @@
             "y": 0.5,
             "uniqueID": 842195,
             "ioValues": []
+        },
+        {
+            "atomType": "Code",
+            "name": "Code",
+            "x": 0.3951890034364261,
+            "y": 0.4796238244514106,
+            "uniqueID": 355736,
+            "ioValues": [
+                {
+                    "name": "Input2",
+                    "ioValue": 10
+                },
+                {
+                    "name": "geometry",
+                    "ioValue": 10
+                },
+                {
+                    "name": "count",
+                    "ioValue": 10
+                },
+                {
+                    "name": "distance",
+                    "ioValue": 10
+                }
+            ],
+            "code": "//Inputs:[geometry, count, distance];\n\n\nreturn [drawRectangle(5,10)]\n//what you return should be a replicad geometry\n\nLearn more about all of the available methods at \n https://replicad.xyz/docs/introapp/UserGuide.html \n"
         }
     ],
     "allConnectors": [],
