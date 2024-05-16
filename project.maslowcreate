@@ -14,11 +14,11 @@
             "ioValue": 10
         },
         {
-            "name": "distanceX",
+            "name": "distanceY",
             "ioValue": 10
         },
         {
-            "name": "distanceY",
+            "name": "distanceX",
             "ioValue": 10
         }
     ],
@@ -95,7 +95,7 @@
                 },
                 {
                     "name": "count",
-                    "ioValue": 3
+                    "ioValue": 10
                 },
                 {
                     "name": "distanceX",
@@ -122,12 +122,7 @@
             "x": 0.98,
             "y": 0.5,
             "uniqueID": 842195,
-            "ioValues": [
-                {
-                    "name": "number or geometry",
-                    "ioValue": 355736
-                }
-            ]
+            "ioValues": []
         }
     ],
     "allConnectors": [
