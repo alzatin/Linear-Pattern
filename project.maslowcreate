@@ -25,46 +25,12 @@
     "topLevel": true,
     "allAtoms": [
         {
-            "atomType": "Rectangle",
-            "name": "Rectangle",
-            "x": 0.23825887743413515,
-            "y": 0.27899686520376177,
-            "uniqueID": 628961,
-            "ioValues": [
-                {
-                    "name": "x length",
-                    "ioValue": 10
-                },
-                {
-                    "name": "y length",
-                    "ioValue": 10
-                }
-            ]
-        },
-        {
             "atomType": "Input",
             "name": "count",
             "x": 0.013333333333333334,
             "y": 0.4482758620689655,
             "uniqueID": 987307,
             "ioValues": []
-        },
-        {
-            "atomType": "Extrude",
-            "name": "Extrude",
-            "x": 0.3951890034364261,
-            "y": 0.31347962382445144,
-            "uniqueID": 922979,
-            "ioValues": [
-                {
-                    "name": "geometry",
-                    "ioValue": 628961
-                },
-                {
-                    "name": "height",
-                    "ioValue": 10
-                }
-            ]
         },
         {
             "atomType": "Input",
@@ -123,16 +89,19 @@
             "y": 0.5,
             "uniqueID": 842195,
             "ioValues": []
+        },
+        {
+            "atomType": "Readme",
+            "name": "README",
+            "x": 0.6678121420389461,
+            "y": 0.7398119122257053,
+            "uniqueID": 1715879627089,
+            "ioValues": [],
+            "readmeText": "Readme text here",
+            "global": true
         }
     ],
     "allConnectors": [
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "geometry",
-            "ap2Primary": true,
-            "ap1ID": 628961,
-            "ap2ID": 922979
-        },
         {
             "ap1Name": "number or geometry",
             "ap2Name": "count",
