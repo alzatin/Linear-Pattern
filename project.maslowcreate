@@ -83,14 +83,6 @@
             "ioValues": []
         },
         {
-            "atomType": "Output",
-            "name": "Output",
-            "x": 0.98,
-            "y": 0.5,
-            "uniqueID": 842195,
-            "ioValues": []
-        },
-        {
             "atomType": "Readme",
             "name": "README",
             "x": 0.6678121420389461,
@@ -99,6 +91,14 @@
             "ioValues": [],
             "readmeText": "Readme text here",
             "global": true
+        },
+        {
+            "atomType": "Output",
+            "name": "Output",
+            "x": 0.98,
+            "y": 0.5,
+            "uniqueID": 842195,
+            "ioValues": []
         }
     ],
     "allConnectors": [
