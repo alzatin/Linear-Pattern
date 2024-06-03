@@ -107,14 +107,10 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5267857142857143,
-            "y": 0.5579937304075235,
-            "uniqueID": 1717432980146,
+            "x": 0.5228174603174603,
+            "y": 0.6144200626959248,
+            "uniqueID": 1717433443174,
             "ioValues": [
-                {
-                    "name": "Input2",
-                    "ioValue": 10
-                },
                 {
                     "name": "geometry1",
                     "ioValue": 10
@@ -124,15 +120,11 @@
                     "ioValue": 10
                 },
                 {
-                    "name": "distanceX",
-                    "ioValue": 10
-                },
-                {
                     "name": "distanceY",
                     "ioValue": 10
                 }
             ],
-            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\n\n\nconst polarCopies = (shape, count, x, y) => {\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = polarCopies(library[geometry1].geometry[0],count, distanceX, distanceY)\nconsole.log(result)\nreturn [result]\n"
+            "code": "//Inputs:[geometry1, count]\n\n\nconst polarCopies = (shape, count, x, y) => {\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = polarCopies(library[geometry1].geometry[0],count, distanceX, distanceY)\nconsole.log(result)\nreturn [result]\n"
         }
     ],
     "allConnectors": [
