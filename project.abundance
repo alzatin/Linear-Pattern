@@ -25,42 +25,12 @@
     "topLevel": true,
     "allAtoms": [
         {
-            "atomType": "Circle",
-            "name": "Circle",
-            "x": 0.34325396825396826,
-            "y": 0.2601880877742947,
-            "uniqueID": 1717432916702,
-            "ioValues": [
-                {
-                    "name": "diameter",
-                    "ioValue": 10
-                }
-            ]
-        },
-        {
             "atomType": "Input",
             "name": "count",
             "x": 0.013333333333333334,
             "y": 0.4482758620689655,
             "uniqueID": 987307,
             "ioValues": []
-        },
-        {
-            "atomType": "Extrude",
-            "name": "Extrude",
-            "x": 0.45337301587301587,
-            "y": 0.27899686520376177,
-            "uniqueID": 1717432920238,
-            "ioValues": [
-                {
-                    "name": "geometry",
-                    "ioValue": 1717432916702
-                },
-                {
-                    "name": "height",
-                    "ioValue": 10
-                }
-            ]
         },
         {
             "atomType": "Input",
@@ -74,24 +44,24 @@
             "atomType": "Input",
             "name": "distanceY",
             "x": 0.013333333333333334,
-            "y": 0.7398119122257053,
+            "y": 0.25705329153605017,
             "uniqueID": 863488,
             "ioValues": []
         },
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5257936507936508,
-            "y": 0.6144200626959248,
+            "x": 0.4454365079365079,
+            "y": 0.47335423197492166,
             "uniqueID": 1717433443174,
             "ioValues": [
                 {
                     "name": "geometry1",
-                    "ioValue": 1717432920238
+                    "ioValue": 10
                 },
                 {
                     "name": "count",
-                    "ioValue": 10
+                    "ioValue": 3
                 },
                 {
                     "name": "distanceX",
@@ -102,7 +72,7 @@
                     "ioValue": 10
                 }
             ],
-            "code": "//Inputs:[]\n\n\nconst polarCopies = (shape, count, x, y) => {\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      } \n      console.log(copied)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = polarCopies(library[geometry1].geometry[0],count, distanceX, distanceY)\nconsole.log(result)\nreturn [result]\n"
+            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\n\n\nconst polarCopies = (shape, count, x, y) => {\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = polarCopies(library[geometry1].geometry[0],count, distanceX, distanceY)\nconsole.log(result)\nreturn [result]\n\n"
         },
         {
             "atomType": "Input",
@@ -128,29 +98,48 @@
             "x": 0.98,
             "y": 0.5,
             "uniqueID": 842195,
-            "ioValues": []
+            "ioValues": [
+                {
+                    "name": "number or geometry",
+                    "ioValue": 1717433443174
+                }
+            ]
         }
     ],
     "allConnectors": [
         {
-            "ap1Name": "geometry",
-            "ap2Name": "geometry",
-            "ap2Primary": true,
-            "ap1ID": 1717432916702,
-            "ap2ID": 1717432920238
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "geometry1",
+            "ap1Name": "number or geometry",
+            "ap2Name": "count",
             "ap2Primary": false,
-            "ap1ID": 1717432920238,
+            "ap1ID": 987307,
             "ap2ID": 1717433443174
         },
         {
             "ap1Name": "number or geometry",
-            "ap2Name": "count",
+            "ap2Name": "geometry1",
             "ap2Primary": false,
             "ap1ID": 441375,
+            "ap2ID": 1717433443174
+        },
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "distanceY",
+            "ap2Primary": false,
+            "ap1ID": 863488,
+            "ap2ID": 1717433443174
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "number or geometry",
+            "ap2Primary": false,
+            "ap1ID": 1717433443174,
+            "ap2ID": 842195
+        },
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "distanceX",
+            "ap2Primary": false,
+            "ap1ID": 296330,
             "ap2ID": 1717433443174
         }
     ],
