@@ -49,32 +49,6 @@
             "ioValues": []
         },
         {
-            "atomType": "Code",
-            "name": "Code",
-            "x": 0.5830469644902635,
-            "y": 0.5235109717868338,
-            "uniqueID": 355736,
-            "ioValues": [
-                {
-                    "name": "geometry1",
-                    "ioValue": 10
-                },
-                {
-                    "name": "count",
-                    "ioValue": 10
-                },
-                {
-                    "name": "distanceX",
-                    "ioValue": 10
-                },
-                {
-                    "name": "distanceY",
-                    "ioValue": 10
-                }
-            ],
-            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\n\n\nconst polarCopies = (shape, count, x, y) => {\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = polarCopies(library[geometry1].geometry[0],count, distanceX, distanceY)\nconsole.log(result)\nreturn [result]\n"
-        },
-        {
             "atomType": "Input",
             "name": "distanceX",
             "x": 0.013333333333333334,
@@ -99,46 +73,78 @@
             "y": 0.5,
             "uniqueID": 842195,
             "ioValues": []
+        },
+        {
+            "atomType": "Circle",
+            "name": "Circle",
+            "x": 0.34325396825396826,
+            "y": 0.2601880877742947,
+            "uniqueID": 1717432916702,
+            "ioValues": [
+                {
+                    "name": "diameter",
+                    "ioValue": 10
+                }
+            ]
+        },
+        {
+            "atomType": "Extrude",
+            "name": "Extrude",
+            "x": 0.4503968253968254,
+            "y": 0.2946708463949843,
+            "uniqueID": 1717432920238,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": 1717432916702
+                },
+                {
+                    "name": "height",
+                    "ioValue": 10
+                }
+            ]
+        },
+        {
+            "atomType": "Code",
+            "name": "Code",
+            "x": 0.5267857142857143,
+            "y": 0.5579937304075235,
+            "uniqueID": 1717432980146,
+            "ioValues": [
+                {
+                    "name": "Input2",
+                    "ioValue": 10
+                },
+                {
+                    "name": "geometry1",
+                    "ioValue": 10
+                },
+                {
+                    "name": "count",
+                    "ioValue": 10
+                },
+                {
+                    "name": "distanceX",
+                    "ioValue": 10
+                },
+                {
+                    "name": "distanceY",
+                    "ioValue": 10
+                }
+            ],
+            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\n\n\nconst polarCopies = (shape, count, x, y) => {\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = polarCopies(library[geometry1].geometry[0],count, distanceX, distanceY)\nconsole.log(result)\nreturn [result]\n"
         }
     ],
     "allConnectors": [
         {
-            "ap1Name": "number or geometry",
-            "ap2Name": "count",
-            "ap2Primary": false,
-            "ap1ID": 987307,
-            "ap2ID": 355736
-        },
-        {
-            "ap1Name": "number or geometry",
-            "ap2Name": "geometry1",
-            "ap2Primary": false,
-            "ap1ID": 441375,
-            "ap2ID": 355736
-        },
-        {
-            "ap1Name": "number or geometry",
-            "ap2Name": "distanceY",
-            "ap2Primary": false,
-            "ap1ID": 863488,
-            "ap2ID": 355736
-        },
-        {
             "ap1Name": "geometry",
-            "ap2Name": "number or geometry",
-            "ap2Primary": false,
-            "ap1ID": 355736,
-            "ap2ID": 842195
-        },
-        {
-            "ap1Name": "number or geometry",
-            "ap2Name": "distanceX",
-            "ap2Primary": false,
-            "ap1ID": 296330,
-            "ap2ID": 355736
+            "ap2Name": "geometry",
+            "ap2Primary": true,
+            "ap1ID": 1717432916702,
+            "ap2ID": 1717432920238
         }
     ],
-    "fileTypeVersion": 1,
     "unitsIndex": 0,
+    "fileTypeVersion": 1,
     "filetypeVersion": 1
 }
