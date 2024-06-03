@@ -25,12 +25,42 @@
     "topLevel": true,
     "allAtoms": [
         {
+            "atomType": "Circle",
+            "name": "Circle",
+            "x": 0.34325396825396826,
+            "y": 0.2601880877742947,
+            "uniqueID": 1717432916702,
+            "ioValues": [
+                {
+                    "name": "diameter",
+                    "ioValue": 10
+                }
+            ]
+        },
+        {
             "atomType": "Input",
             "name": "count",
             "x": 0.013333333333333334,
             "y": 0.4482758620689655,
             "uniqueID": 987307,
             "ioValues": []
+        },
+        {
+            "atomType": "Extrude",
+            "name": "Extrude",
+            "x": 0.45337301587301587,
+            "y": 0.27899686520376177,
+            "uniqueID": 1717432920238,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": 1717432916702
+                },
+                {
+                    "name": "height",
+                    "ioValue": 10
+                }
+            ]
         },
         {
             "atomType": "Input",
@@ -49,6 +79,32 @@
             "ioValues": []
         },
         {
+            "atomType": "Code",
+            "name": "Code",
+            "x": 0.5257936507936508,
+            "y": 0.6144200626959248,
+            "uniqueID": 1717433443174,
+            "ioValues": [
+                {
+                    "name": "geometry1",
+                    "ioValue": 1717432920238
+                },
+                {
+                    "name": "count",
+                    "ioValue": 10
+                },
+                {
+                    "name": "distanceX",
+                    "ioValue": 10
+                },
+                {
+                    "name": "distanceY",
+                    "ioValue": 10
+                }
+            ],
+            "code": "//Inputs:[]\n\n\nconst polarCopies = (shape, count, x, y) => {\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      } \n      console.log(copied)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = polarCopies(library[geometry1].geometry[0],count, distanceX, distanceY)\nconsole.log(result)\nreturn [result]\n"
+        },
+        {
             "atomType": "Input",
             "name": "distanceX",
             "x": 0.013333333333333334,
@@ -59,8 +115,8 @@
         {
             "atomType": "Readme",
             "name": "README",
-            "x": 0.6678121420389461,
-            "y": 0.7398119122257053,
+            "x": 0.6726190476190476,
+            "y": 0.7523510971786834,
             "uniqueID": 1715879627089,
             "ioValues": [],
             "readmeText": "Readme text here",
@@ -73,58 +129,6 @@
             "y": 0.5,
             "uniqueID": 842195,
             "ioValues": []
-        },
-        {
-            "atomType": "Circle",
-            "name": "Circle",
-            "x": 0.34325396825396826,
-            "y": 0.2601880877742947,
-            "uniqueID": 1717432916702,
-            "ioValues": [
-                {
-                    "name": "diameter",
-                    "ioValue": 10
-                }
-            ]
-        },
-        {
-            "atomType": "Extrude",
-            "name": "Extrude",
-            "x": 0.4503968253968254,
-            "y": 0.2946708463949843,
-            "uniqueID": 1717432920238,
-            "ioValues": [
-                {
-                    "name": "geometry",
-                    "ioValue": 1717432916702
-                },
-                {
-                    "name": "height",
-                    "ioValue": 10
-                }
-            ]
-        },
-        {
-            "atomType": "Code",
-            "name": "Code",
-            "x": 0.5228174603174603,
-            "y": 0.6144200626959248,
-            "uniqueID": 1717433443174,
-            "ioValues": [
-                {
-                    "name": "geometry1",
-                    "ioValue": 10
-                },
-                {
-                    "name": "count",
-                    "ioValue": 10
-                },
-                {
-                    "name": "distanceY",
-                    "ioValue": 10
-                }
-            ],
-            "code": "//Inputs:[geometry1, count]\n\n\nconst polarCopies = (shape, count, x, y) => {\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = polarCopies(library[geometry1].geometry[0],count, distanceX, distanceY)\nconsole.log(result)\nreturn [result]\n"
         }
     ],
     "allConnectors": [
@@ -134,6 +138,20 @@
             "ap2Primary": true,
             "ap1ID": 1717432916702,
             "ap2ID": 1717432920238
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry1",
+            "ap2Primary": false,
+            "ap1ID": 1717432920238,
+            "ap2ID": 1717433443174
+        },
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "count",
+            "ap2Primary": false,
+            "ap1ID": 441375,
+            "ap2ID": 1717433443174
         }
     ],
     "unitsIndex": 0,
