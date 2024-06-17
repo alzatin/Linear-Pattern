@@ -26,22 +26,6 @@
     "allAtoms": [
         {
             "atomType": "Input",
-            "name": "count",
-            "x": 0.013333333333333334,
-            "y": 0.4482758620689655,
-            "uniqueID": 987307,
-            "ioValues": []
-        },
-        {
-            "atomType": "Input",
-            "name": "shape",
-            "x": 0.013333333333333334,
-            "y": 0.6394984326018809,
-            "uniqueID": 441375,
-            "ioValues": []
-        },
-        {
-            "atomType": "Input",
             "name": "distanceY",
             "x": 0.013333333333333334,
             "y": 0.25705329153605017,
@@ -49,10 +33,18 @@
             "ioValues": []
         },
         {
+            "atomType": "Input",
+            "name": "count",
+            "x": 0.013333333333333334,
+            "y": 0.4482758620689655,
+            "uniqueID": 987307,
+            "ioValues": []
+        },
+        {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.4454365079365079,
-            "y": 0.47335423197492166,
+            "x": 0.44511581067472306,
+            "y": 0.45652173913043476,
             "uniqueID": 1717433443174,
             "ioValues": [
                 {
@@ -61,7 +53,7 @@
                 },
                 {
                     "name": "count",
-                    "ioValue": 3
+                    "ioValue": 10
                 },
                 {
                     "name": "distanceX",
@@ -72,7 +64,15 @@
                     "ioValue": 10
                 }
             ],
-            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\n\n\nconst polarCopies = (shape, count, x, y) => {\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = polarCopies(library[geometry1].geometry[0],count, distanceX, distanceY)\nconsole.log(result)\nreturn [result]\n\n"
+            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\n\n\nconst polarCopies = (shape, count, x, y) => {\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = {geometry: polarCopies(library[geometry1].geometry[0],count, distanceX, distanceY), color: library[geometry1].color, tags: library[geometry1].tags, plane: library[geometry1].plane }\nconsole.log(result)\nreturn result\n\n"
+        },
+        {
+            "atomType": "Input",
+            "name": "shape",
+            "x": 0.013333333333333334,
+            "y": 0.6394984326018809,
+            "uniqueID": 441375,
+            "ioValues": []
         },
         {
             "atomType": "Input",
@@ -98,29 +98,10 @@
             "x": 0.98,
             "y": 0.5,
             "uniqueID": 842195,
-            "ioValues": [
-                {
-                    "name": "number or geometry",
-                    "ioValue": 1717433443174
-                }
-            ]
+            "ioValues": []
         }
     ],
     "allConnectors": [
-        {
-            "ap1Name": "number or geometry",
-            "ap2Name": "count",
-            "ap2Primary": false,
-            "ap1ID": 987307,
-            "ap2ID": 1717433443174
-        },
-        {
-            "ap1Name": "number or geometry",
-            "ap2Name": "geometry1",
-            "ap2Primary": false,
-            "ap1ID": 441375,
-            "ap2ID": 1717433443174
-        },
         {
             "ap1Name": "number or geometry",
             "ap2Name": "distanceY",
@@ -129,11 +110,25 @@
             "ap2ID": 1717433443174
         },
         {
+            "ap1Name": "number or geometry",
+            "ap2Name": "count",
+            "ap2Primary": false,
+            "ap1ID": 987307,
+            "ap2ID": 1717433443174
+        },
+        {
             "ap1Name": "geometry",
             "ap2Name": "number or geometry",
             "ap2Primary": false,
             "ap1ID": 1717433443174,
             "ap2ID": 842195
+        },
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "geometry1",
+            "ap2Primary": false,
+            "ap1ID": 441375,
+            "ap2ID": 1717433443174
         },
         {
             "ap1Name": "number or geometry",
