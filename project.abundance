@@ -41,6 +41,14 @@
             "ioValues": []
         },
         {
+            "atomType": "Input",
+            "name": "shape",
+            "x": 0.013333333333333334,
+            "y": 0.6394984326018809,
+            "uniqueID": 441375,
+            "ioValues": []
+        },
+        {
             "atomType": "Code",
             "name": "Code",
             "x": 0.5961732124874118,
@@ -49,7 +57,7 @@
             "ioValues": [
                 {
                     "name": "geometry1",
-                    "ioValue": 1718651225884
+                    "ioValue": 10
                 },
                 {
                     "name": "count",
@@ -64,15 +72,7 @@
                     "ioValue": 10
                 }
             ],
-            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\n\n\nconst polarCopies = (shape, count, x, y) => {\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = {geometry: polarCopies(library[geometry1].geometry[0],count, distanceX, distanceY), color: library[geometry1].color, tags: library[geometry1].tags, plane: library[geometry1].plane }\nconsole.log(result)\nreturn result\n\n"
-        },
-        {
-            "atomType": "Input",
-            "name": "shape",
-            "x": 0.013333333333333334,
-            "y": 0.6394984326018809,
-            "uniqueID": 441375,
-            "ioValues": []
+            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\n\n\nconst polarCopies = (shape, count, x, y) => {\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = {geometry: [polarCopies(library[geometry1].geometry[0],count, distanceX, distanceY)], color: library[geometry1].color, tags: library[geometry1].tags, plane: library[geometry1].plane }\nconsole.log(result)\nreturn result\n\n"
         },
         {
             "atomType": "Input",
@@ -81,29 +81,6 @@
             "y": 0.8087774294670846,
             "uniqueID": 296330,
             "ioValues": []
-        },
-        {
-            "atomType": "Readme",
-            "name": "README",
-            "x": 0.6726190476190476,
-            "y": 0.7523510971786834,
-            "uniqueID": 1715879627089,
-            "ioValues": [],
-            "readmeText": "Readme text here",
-            "global": true
-        },
-        {
-            "atomType": "Output",
-            "name": "Output",
-            "x": 0.98,
-            "y": 0.5,
-            "uniqueID": 842195,
-            "ioValues": [
-                {
-                    "name": "number or geometry",
-                    "ioValue": 1717433443174
-                }
-            ]
         },
         {
             "atomType": "Circle",
@@ -134,6 +111,29 @@
                     "ioValue": 10
                 }
             ]
+        },
+        {
+            "atomType": "Readme",
+            "name": "README",
+            "x": 0.6726190476190476,
+            "y": 0.7523510971786834,
+            "uniqueID": 1715879627089,
+            "ioValues": [],
+            "readmeText": "Readme text here",
+            "global": true
+        },
+        {
+            "atomType": "Output",
+            "name": "Output",
+            "x": 0.98,
+            "y": 0.5,
+            "uniqueID": 842195,
+            "ioValues": [
+                {
+                    "name": "number or geometry",
+                    "ioValue": 1717433443174
+                }
+            ]
         }
     ],
     "allConnectors": [
@@ -149,6 +149,13 @@
             "ap2Name": "count",
             "ap2Primary": false,
             "ap1ID": 987307,
+            "ap2ID": 1717433443174
+        },
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "geometry1",
+            "ap2Primary": false,
+            "ap1ID": 441375,
             "ap2ID": 1717433443174
         },
         {
@@ -171,13 +178,6 @@
             "ap2Primary": true,
             "ap1ID": 1718651223037,
             "ap2ID": 1718651225884
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "geometry1",
-            "ap2Primary": false,
-            "ap1ID": 1718651225884,
-            "ap2ID": 1717433443174
         }
     ],
     "unitsIndex": 0,
