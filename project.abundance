@@ -51,8 +51,8 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5961732124874118,
-            "y": 0.39751552795031053,
+            "x": 0.5321390937829295,
+            "y": 0.31974921630094044,
             "uniqueID": 1717433443174,
             "ioValues": [
                 {
@@ -72,7 +72,8 @@
                     "ioValue": 10
                 }
             ],
-            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\n\n\nconst polarCopies = (shape, count, x, y) => {\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = {geometry: [polarCopies(library[geometry1].geometry[0],count, distanceX, distanceY)], color: library[geometry1].color, tags: library[geometry1].tags, plane: library[geometry1].plane }\nconsole.log(result)\nreturn result\n\n"
+            "codeVersion": 1,
+            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\nconsole.log(library[geometry1].geometry[0])\nif (library[geometry1].geometry[0].clone){\n  library[geometry1] = {\n  geometry: [drawRectangle(10,10)],\n  color:\"#FFB09D\",\n  tags: []\n}\nconsole.log(library[geometry1])\n}\nconst polarCopies = (shape, count, x, y) => {\n    console.log(shape)\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = {geometry: [polarCopies(library[geometry1].geometry[0],count, distanceX, distanceY)], color: library[geometry1].color, tags: library[geometry1].tags, plane: library[geometry1].plane }\nconsole.log(result)\nreturn result\n\n"
         },
         {
             "atomType": "Input",
@@ -85,21 +86,21 @@
         {
             "atomType": "Circle",
             "name": "Circle",
-            "x": 0.24974823766364554,
-            "y": 0.7981366459627329,
+            "x": 0.2507903055848261,
+            "y": 0.7899686520376176,
             "uniqueID": 1718651223037,
             "ioValues": [
                 {
                     "name": "diameter",
-                    "ioValue": 10
+                    "ioValue": 4
                 }
             ]
         },
         {
             "atomType": "Extrude",
             "name": "Extrude",
-            "x": 0.4229607250755287,
-            "y": 0.782608695652174,
+            "x": 0.42255005268703894,
+            "y": 0.7053291536050157,
             "uniqueID": 1718651225884,
             "ioValues": [
                 {
@@ -115,10 +116,15 @@
         {
             "atomType": "Readme",
             "name": "README",
-            "x": 0.6726190476190476,
-            "y": 0.7523510971786834,
+            "x": 0.8061116965226554,
+            "y": 0.799373040752351,
             "uniqueID": 1715879627089,
-            "ioValues": [],
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": 1718651225884
+                }
+            ],
             "readmeText": "Readme text here",
             "global": true
         },
@@ -134,6 +140,33 @@
                     "ioValue": 1717433443174
                 }
             ]
+        },
+        {
+            "atomType": "Code",
+            "name": "Code",
+            "x": 0.6217070600632244,
+            "y": 0.6300940438871473,
+            "uniqueID": 1719683298927,
+            "ioValues": [
+                {
+                    "name": "geometry1",
+                    "ioValue": 1718651225884
+                },
+                {
+                    "name": "count",
+                    "ioValue": 10
+                },
+                {
+                    "name": "distanceX",
+                    "ioValue": 10
+                },
+                {
+                    "name": "distanceY",
+                    "ioValue": 10
+                }
+            ],
+            "codeVersion": 1,
+            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\nconsole.log(library[geometry1].geometry[0])\nif (library[geometry1].geometry[0].clone){\n  library[geometry1] = {\n  geometry: [drawRectangle(10,10)],\n  color:\"#FFB09D\",\n  tags: []\n}\nconsole.log(library[geometry1])\n}\nconst polarCopies = (shape, count, x, y) => {\n    console.log(shape)\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = {geometry: [polarCopies(library[geometry1].geometry[0],count, distanceX, distanceY)], color: library[geometry1].color, tags: library[geometry1].tags, plane: library[geometry1].plane }\nconsole.log(result)\nreturn result\n\n"
         }
     ],
     "allConnectors": [
@@ -178,9 +211,24 @@
             "ap2Primary": true,
             "ap1ID": 1718651223037,
             "ap2ID": 1718651225884
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": false,
+            "ap1ID": 1718651225884,
+            "ap2ID": 1715879627089
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry1",
+            "ap2Primary": false,
+            "ap1ID": 1718651225884,
+            "ap2ID": 1719683298927
         }
     ],
     "unitsIndex": 0,
     "fileTypeVersion": 1,
+    "projectSVGs": [],
     "filetypeVersion": 1
 }
