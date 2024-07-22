@@ -51,8 +51,8 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.4928092042186002,
-            "y": 0.331306990881459,
+            "x": 0.4899328859060402,
+            "y": 0.3191489361702128,
             "uniqueID": 1717433443174,
             "ioValues": [
                 {
@@ -73,7 +73,7 @@
                 }
             ],
             "codeVersion": 1,
-            "code": "//Linear Pattern 1\n//Inputs:[inputID, count, distanceX, distanceY]\n\nconst bomAssembly = [];\n\nconst polarCopies = (shape, count, x, y) => {\n  console.log(shape);\n\n  const base = shape.geometry[0];\n  const copies = [];\n  for (let i = 0; i < count; i++) {\n    copies.push({\n      geometry: [base.clone().translate(i * x, i * y)],\n      tags: shape.tags,\n      plane: shape.plane,\n      color: shape.color,\n      bom: shape.bom,\n    });\n    if (shape.bom.length > 0) {\n      bomAssembly.push(...shape.bom);\n    }\n  }\n  let copyAssembly = copies;\n  return copyAssembly;\n};\n\nreturn started.then(() => {\n  console.log(inputID);\n  if (inputID !== 10) {\n    library[targetID] = actOnLeafs(library[inputID], (leaf) => {\n      return {\n        geometry: polarCopies(leaf, count, distanceX, distanceY),\n        tags: library[inputID].tags,\n        plane: library[inputID].plane,\n        color: library[inputID].color,\n        bom: bomAssembly,\n      };\n    });\n  } else {\n    console.log(\"input id is not a valid geometry\");\n    //faulty input\n    library[targetID] = {\n      geometry: [drawRectangle(10, 10)],\n      color: \"#FFB09D\",\n      tags: [],\n      bom: [],\n    };\n  }\n\n  console.log(result);\n  return library[targetID];\n});\n"
+            "code": "//Linear Pattern 1\n//Inputs:[inputID, count, distanceX, distanceY]\n\nconst bomAssembly = [];\n\nconst polarCopies = (shape, count, x, y) => {\n  console.log(shape);\n\n  const base = shape.geometry[0];\n  const copies = [];\n  for (let i = 0; i < count; i++) {\n    copies.push({\n      geometry: [base.clone().translate(i * x, i * y)],\n      tags: shape.tags,\n      plane: shape.plane,\n      color: shape.color,\n      bom: shape.bom,\n    });\n    if (shape.bom.length > 0) {\n      console.log(\"pushing bom assembly\");\n      bomAssembly.push(...shape.bom);\n    }\n  }\n  let copyAssembly = copies;\n  return copyAssembly;\n};\n\nreturn started.then(() => {\n  console.log(inputID);\n  if (inputID !== 10) {\n    library[targetID] = actOnLeafs(library[inputID], (leaf) => {\n      return {\n        geometry: polarCopies(leaf, count, distanceX, distanceY),\n        tags: library[inputID].tags,\n        plane: library[inputID].plane,\n        color: library[inputID].color,\n        bom: bomAssembly,\n      };\n    });\n  } else {\n    console.log(\"input id is not a valid geometry\");\n    //faulty input\n    library[targetID] = {\n      geometry: [drawRectangle(10, 10)],\n      color: \"#FFB09D\",\n      tags: [],\n      bom: [],\n    };\n  }\n\n  console.log(result);\n  return library[targetID];\n});\n"
         },
         {
             "atomType": "Input",
@@ -144,7 +144,7 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.6069031639501438,
+            "x": 0.6021093000958773,
             "y": 0.6231003039513677,
             "uniqueID": 1719683605938,
             "ioValues": [
@@ -154,7 +154,7 @@
                 },
                 {
                     "name": "count",
-                    "ioValue": 10
+                    "ioValue": 4
                 },
                 {
                     "name": "distanceX",
@@ -166,7 +166,7 @@
                 }
             ],
             "codeVersion": 1,
-            "code": "//Linear Pattern 1\n//Inputs:[inputID, count, distanceX, distanceY]\n\nconst bomAssembly = [];\n\nconst polarCopies = (shape, count, x, y) => {\n  console.log(shape);\n\n  const base = shape.geometry[0];\n  const copies = [];\n  for (let i = 0; i < count; i++) {\n    copies.push({\n      geometry: [base.clone().translate(i * x, i * y)],\n      tags: shape.tags,\n      plane: shape.plane,\n      color: shape.color,\n      bom: shape.bom,\n    });\n    if (shape.bom.length > 0) {\n      bomAssembly.push(...shape.bom);\n    }\n  }\n  let copyAssembly = copies;\n  return copyAssembly;\n};\n\nreturn started.then(() => {\n  console.log(inputID);\n  if (inputID !== 10) {\n    library[targetID] = actOnLeafs(library[inputID], (leaf) => {\n      return {\n        geometry: polarCopies(leaf, count, distanceX, distanceY),\n        tags: library[inputID].tags,\n        plane: library[inputID].plane,\n        color: library[inputID].color,\n        bom: bomAssembly,\n      };\n    });\n  } else {\n    console.log(\"input id is not a valid geometry\");\n    //faulty input\n    library[targetID] = {\n      geometry: [drawRectangle(10, 10)],\n      color: \"#FFB09D\",\n      tags: [],\n      bom: [],\n    };\n  }\n\n  console.log(result);\n  return library[targetID];\n});\n"
+            "code": "//Linear Pattern 1\n//Inputs:[inputID, count, distanceX, distanceY]\n\nconst bomAssembly = [];\n\nconst polarCopies = (shape, count, x, y) => {\n  console.log(shape);\n\n  const base = shape.geometry[0];\n  const copies = [];\n  for (let i = 0; i < count; i++) {\n    copies.push({\n      geometry: [base.clone().translate(i * x, i * y)],\n      tags: shape.tags,\n      plane: shape.plane,\n      color: shape.color,\n      bom: shape.bom,\n    });\n    if (shape.bom.length > 0) {\n      console.log(\"pushing bom assembly\");\n      bomAssembly.push(...shape.bom);\n    }\n  }\n  let copyAssembly = copies;\n  return copyAssembly;\n};\n\nreturn started.then(() => {\n  console.log(inputID);\n  if (inputID !== 10) {\n    library[targetID] = actOnLeafs(library[inputID], (leaf) => {\n      return {\n        geometry: polarCopies(leaf, count, distanceX, distanceY),\n        tags: library[inputID].tags,\n        plane: library[inputID].plane,\n        color: library[inputID].color,\n        bom: bomAssembly,\n      };\n    });\n  } else {\n    console.log(\"input id is not a valid geometry\");\n    //faulty input\n    library[targetID] = {\n      geometry: [drawRectangle(10, 10)],\n      color: \"#FFB09D\",\n      tags: [],\n      bom: [],\n    };\n  }\n\n  console.log(result);\n  return library[targetID];\n});\n"
         },
         {
             "atomType": "Add-BOM-Tag",
