@@ -149,7 +149,7 @@
                 },
                 {
                     "name": "count",
-                    "ioValue": 8
+                    "ioValue": 10
                 },
                 {
                     "name": "distanceX",
