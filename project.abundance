@@ -56,19 +56,19 @@
             "uniqueID": 1717433443174,
             "ioValues": [
                 {
+                    "name": "inputID",
+                    "ioValue": 10
+                },
+                {
                     "name": "count",
                     "ioValue": 10
                 },
                 {
                     "name": "distanceX",
-                    "ioValue": 13
+                    "ioValue": 10
                 },
                 {
                     "name": "distanceY",
-                    "ioValue": 11
-                },
-                {
-                    "name": "inputID",
                     "ioValue": 10
                 }
             ],
@@ -86,8 +86,8 @@
         {
             "atomType": "Circle",
             "name": "Circle",
-            "x": 0.2507903055848261,
-            "y": 0.7899686520376176,
+            "x": 0.16395014381591563,
+            "y": 0.8541033434650457,
             "uniqueID": 1718651223037,
             "ioValues": [
                 {
@@ -99,8 +99,8 @@
         {
             "atomType": "Extrude",
             "name": "Extrude",
-            "x": 0.3901665344964314,
-            "y": 0.7203647416413375,
+            "x": 0.31639501438159157,
+            "y": 0.7507598784194529,
             "uniqueID": 1718651225884,
             "ioValues": [
                 {
@@ -116,8 +116,8 @@
         {
             "atomType": "Readme",
             "name": "README",
-            "x": 0.7822878228782287,
-            "y": 0.696048632218845,
+            "x": 0.8705656759348034,
+            "y": 0.723404255319149,
             "uniqueID": 1715879627089,
             "ioValues": [
                 {
@@ -144,29 +144,48 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5479704797047971,
-            "y": 0.6595744680851063,
+            "x": 0.5397890699904122,
+            "y": 0.6382978723404256,
             "uniqueID": 1719683605938,
             "ioValues": [
                 {
+                    "name": "inputID",
+                    "ioValue": 1721688252237
+                },
+                {
                     "name": "count",
-                    "ioValue": 7
+                    "ioValue": 6
                 },
                 {
                     "name": "distanceX",
-                    "ioValue": 10
+                    "ioValue": 12
                 },
                 {
                     "name": "distanceY",
-                    "ioValue": 10
-                },
-                {
-                    "name": "inputID",
-                    "ioValue": 1718651225884
+                    "ioValue": 8
                 }
             ],
             "codeVersion": 1,
-            "code": "//Linear Pattern 1\n//Inputs:[inputID, count, distanceX, distanceY]\n\nconst polarCopies = (shape, count, x, y) => {\n  console.log(shape);\n  const base = shape;\n  const copies = [];\n  for (let i = 0; i < count; i++) {\n    copies.push(base.clone().translate(i * x, i * y));\n  }\n  let fusedPattern = chainFuse(copies);\n  return fusedPattern;\n};\n\nreturn started.then(() => {\n  console.log(inputID);\n  if (inputID !== 10) {\n    library[targetID] = actOnLeafs(library[inputID], (leaf) => {\n      let geometryToPattern = leaf.geometry[0];\n      return {\n        geometry: [polarCopies(geometryToPattern, count, distanceX, distanceY)],\n        tags: leaf.tags,\n        plane: leaf.plane,\n        color: leaf.color,\n        bom: leaf.bom,\n      };\n    });\n  } else {\n    console.log(\"input id has no geometry\");\n    //faulty input\n    library[targetID] = {\n      geometry: [drawRectangle(10, 10)],\n      color: \"#FFB09D\",\n      tags: [],\n    };\n  }\n\n  console.log(result);\n  return library[targetID];\n});\n"
+            "code": "//Linear Pattern 1\n//Inputs:[inputID, count, distanceX, distanceY]\n\nconst polarCopies = (shape, count, x, y) => {\n  console.log(shape);\n  const base = shape.geometry[0];\n  const copies = [];\n  for (let i = 0; i < count; i++) {\n    copies.push({\n      geometry: [base.clone().translate(i * x, i * y)],\n      tags: shape.tags,\n      plane: shape.plane,\n      color: shape.color,\n      bom: shape.bom,\n    });\n  }\n  let copyAssembly = copies;\n  return copyAssembly;\n};\n\nreturn started.then(() => {\n  console.log(inputID);\n  if (inputID !== 10) {\n    library[targetID] = actOnLeafs(library[inputID], (leaf) => {\n      return {\n        geometry: polarCopies(leaf, count, distanceX, distanceY),\n        tags: library[inputID].tags,\n        plane: library[inputID].plane,\n        color: library[inputID].color,\n        bom: library[inputID].bom,\n      };\n    });\n  } else {\n    console.log(\"input id is not a valid geometry\");\n    //faulty input\n    library[targetID] = {\n      geometry: [\n        polarCopies(drawRectangle(10, 10), count, distanceX, distanceY),\n      ],\n      color: \"#FFB09D\",\n      tags: [],\n      bom: [],\n    };\n  }\n\n  console.log(result);\n  return library[targetID];\n});\n"
+        },
+        {
+            "atomType": "Add-BOM-Tag",
+            "name": "Add BOM Tag",
+            "x": 0.4372003835091083,
+            "y": 0.7659574468085106,
+            "uniqueID": 1721688252237,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": 1718651225884
+                }
+            ],
+            "BOMitem": {
+                "BOMitemName": "rounddowel",
+                "numberNeeded": 1,
+                "costUSD": 10,
+                "source": "www.example.com"
+            }
         }
     ],
     "allConnectors": [
@@ -214,10 +233,10 @@
         },
         {
             "ap1Name": "geometry",
-            "ap2Name": "inputID",
-            "ap2Primary": false,
+            "ap2Name": "geometry",
+            "ap2Primary": true,
             "ap1ID": 1718651225884,
-            "ap2ID": 1719683605938
+            "ap2ID": 1721688252237
         },
         {
             "ap1Name": "geometry",
@@ -225,6 +244,13 @@
             "ap2Primary": false,
             "ap1ID": 1719683605938,
             "ap2ID": 1715879627089
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "inputID",
+            "ap2Primary": false,
+            "ap1ID": 1721688252237,
+            "ap2ID": 1719683605938
         }
     ],
     "fileTypeVersion": 1,
