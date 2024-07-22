@@ -51,14 +51,10 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.4504361617763679,
-            "y": 0.2978723404255319,
+            "x": 0.4456780333068993,
+            "y": 0.2887537993920973,
             "uniqueID": 1717433443174,
             "ioValues": [
-                {
-                    "name": "geometry1",
-                    "ioValue": 10
-                },
                 {
                     "name": "count",
                     "ioValue": 10
@@ -70,10 +66,14 @@
                 {
                     "name": "distanceY",
                     "ioValue": 10
+                },
+                {
+                    "name": "inputID",
+                    "ioValue": 10
                 }
             ],
             "codeVersion": 1,
-            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\nconsole.log(library[geometry1].geometry[0])\nlet geometryToPattern; \nif (library[geometry1].geometry[0].clone){\n  geometryToPattern = library[geometry1].geometry[0]\n}\nelse{\n geometryToPattern = {\n  geometry: [drawRectangle(10,10)],\n  color:\"#FFB09D\",\n  tags: []\n}\n}\nconst polarCopies = (shape, count, x, y) => {\n    console.log(shape)\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = {geometry: [polarCopies(geometryToPattern,count, distanceX, distanceY)], color: library[geometry1].color, bom:library[geometry1].bom, tags: library[geometry1].tags, plane: library[geometry1].plane }\nconsole.log(result)\nreturn result\n\n"
+            "code": "//Linear Pattern 1 \n//Inputs:[inputID, count, distanceX, distanceY]\n\nif (library[inputID].geometry[0]) {\nlibrary[targetID] = actOnLeafs(library[inputID], (leaf) => {\n    let geometryToPattern = leaf.geometry[0];\n    return {\n      geometry: [\n        polarCopies(geometryToPattern, count, distanceX, distanceY)\n      ],\n      tags: leaf.tags,\n      plane: leaf.plane,\n      color: leaf.color,\n      bom: leaf.bom,\n    };\n  });\n}\n else {\n    //faulty input\n    library[targetID] = {\n    geometry: [drawRectangle(10, 10)],\n    color: \"#FFB09D\",\n    tags: [],\n  };\n}\nconst polarCopies = (shape, count, x, y) => {\n  console.log(shape);\n  const base = shape;\n  const copies = [];\n  for (let i = 0; i < count; i++) {\n    copies.push(base.clone().translate(i * x, i * y));\n  }\n  let fusedPattern = chainFuse(copies);\n  return fusedPattern;\n};\n\nconsole.log(result);\nreturn library[targetID]\n\n\n"
         },
         {
             "atomType": "Input",
@@ -99,8 +99,8 @@
         {
             "atomType": "Extrude",
             "name": "Extrude",
-            "x": 0.4123711340206186,
-            "y": 0.7355623100303951,
+            "x": 0.3901665344964314,
+            "y": 0.7203647416413375,
             "uniqueID": 1718651225884,
             "ioValues": [
                 {
@@ -139,14 +139,10 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5717684377478193,
-            "y": 0.7750759878419452,
+            "x": 0.5416336241078509,
+            "y": 0.6595744680851063,
             "uniqueID": 1719683605938,
             "ioValues": [
-                {
-                    "name": "geometry1",
-                    "ioValue": 1718651225884
-                },
                 {
                     "name": "count",
                     "ioValue": 10
@@ -158,10 +154,14 @@
                 {
                     "name": "distanceY",
                     "ioValue": 10
+                },
+                {
+                    "name": "inputID",
+                    "ioValue": 1718651225884
                 }
             ],
             "codeVersion": 1,
-            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\nconsole.log(library[geometry1].geometry[0])\nlet geometryToPattern; \nif (library[geometry1].geometry[0].clone){\n  geometryToPattern = library[geometry1].geometry[0]\n}\nelse{\n geometryToPattern = {\n  geometry: [drawRectangle(10,10)],\n  color:\"#FFB09D\",\n  tags: []\n}\n}\nconst polarCopies = (shape, count, x, y) => {\n    console.log(shape)\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = {geometry: [polarCopies(geometryToPattern,count, distanceX, distanceY)], color: library[geometry1].color, bom:library[geometry1].bom, tags: library[geometry1].tags, plane: library[geometry1].plane }\nconsole.log(result)\nreturn result\n\n"
+            "code": "//Linear Pattern 1 \n//Inputs:[inputID, count, distanceX, distanceY]\n\nif (library[inputID].geometry[0]) {\nlibrary[targetID] = actOnLeafs(library[inputID], (leaf) => {\n    let geometryToPattern = leaf.geometry[0];\n    return {\n      geometry: [\n        polarCopies(geometryToPattern, count, distanceX, distanceY)\n      ],\n      tags: leaf.tags,\n      plane: leaf.plane,\n      color: leaf.color,\n      bom: leaf.bom,\n    };\n  });\n}\n else {\n    //faulty input\n    library[targetID] = {\n    geometry: [drawRectangle(10, 10)],\n    color: \"#FFB09D\",\n    tags: [],\n  };\n}\nconst polarCopies = (shape, count, x, y) => {\n  console.log(shape);\n  const base = shape;\n  const copies = [];\n  for (let i = 0; i < count; i++) {\n    copies.push(base.clone().translate(i * x, i * y));\n  }\n  let fusedPattern = chainFuse(copies);\n  return fusedPattern;\n};\n\nconsole.log(result);\nreturn library[targetID]\n"
         }
     ],
     "allConnectors": [
@@ -177,13 +177,6 @@
             "ap2Name": "count",
             "ap2Primary": false,
             "ap1ID": 987307,
-            "ap2ID": 1717433443174
-        },
-        {
-            "ap1Name": "number or geometry",
-            "ap2Name": "geometry1",
-            "ap2Primary": false,
-            "ap1ID": 441375,
             "ap2ID": 1717433443174
         },
         {
@@ -209,7 +202,7 @@
         },
         {
             "ap1Name": "geometry",
-            "ap2Name": "geometry1",
+            "ap2Name": "inputID",
             "ap2Primary": false,
             "ap1ID": 1718651225884,
             "ap2ID": 1719683605938
