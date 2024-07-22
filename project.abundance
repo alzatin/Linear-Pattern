@@ -7,7 +7,7 @@
     "ioValues": [
         {
             "name": "distanceY",
-            "ioValue": 10
+            "ioValue": 11
         },
         {
             "name": "count",
@@ -19,7 +19,7 @@
         },
         {
             "name": "distanceX",
-            "ioValue": 10
+            "ioValue": 13
         }
     ],
     "topLevel": true,
@@ -51,8 +51,8 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.49169741697416974,
-            "y": 0.41033434650455924,
+            "x": 0.4797047970479704,
+            "y": 0.364741641337386,
             "uniqueID": 1717433443174,
             "ioValues": [
                 {
@@ -61,11 +61,11 @@
                 },
                 {
                     "name": "distanceX",
-                    "ioValue": 10
+                    "ioValue": 13
                 },
                 {
                     "name": "distanceY",
-                    "ioValue": 10
+                    "ioValue": 11
                 },
                 {
                     "name": "inputID",
@@ -73,7 +73,7 @@
                 }
             ],
             "codeVersion": 1,
-            "code": "//Linear Pattern 1\n//Inputs:[inputID, count, distanceX, distanceY]\n\nconst polarCopies = (shape, count, x, y) => {\n  console.log(shape);\n  const base = shape;\n  const copies = [];\n  for (let i = 0; i < count; i++) {\n    copies.push(base.clone().translate(i * x, i * y));\n  }\n  let fusedPattern = chainFuse(copies);\n  return fusedPattern;\n};\n\nreturn started.then(() => {\n  console.log(inputID);\n  if (inputID !== 10) {\n    library[targetID] = actOnLeafs(library[inputID], (leaf) => {\n      let geometryToPattern = leaf.geometry[0];\n      return {\n        geometry: [polarCopies(geometryToPattern, count, distanceX, distanceY)],\n        tags: leaf.tags,\n        plane: leaf.plane,\n        color: leaf.color,\n        bom: leaf.bom,\n      };\n    });\n  } else {\n    console.log(\"input id has no geometry\");\n    //faulty input\n    library[targetID] = {\n      geometry: [drawRectangle(10, 10)],\n      color: \"#FFB09D\",\n      tags: [],\n      bom:[],\n    };\n  }\n\n  console.log(result);\n  return library[targetID];\n});\n"
+            "code": "//Linear Pattern 1\n//Inputs:[inputID, count, distanceX, distanceY]\n\nconst polarCopies = (shape, count, x, y) => {\n  console.log(shape);\n  const base = shape;\n  const copies = [];\n  for (let i = 0; i < count; i++) {\n    copies.push(base.clone().translate(i * x, i * y));\n  }\n  let fusedPattern = chainFuse(copies);\n  return fusedPattern;\n};\n\nreturn started.then(() => {\n  console.log(inputID);\n  if (inputID !== 10) {\n    library[targetID] = actOnLeafs(library[inputID], (leaf) => {\n      let geometryToPattern = leaf.geometry[0];\n      return {\n        geometry: [polarCopies(geometryToPattern, count, distanceX, distanceY)],\n        tags: leaf.tags,\n        plane: leaf.plane,\n        color: leaf.color,\n        bom: leaf.bom,\n      };\n    });\n  } else {\n    console.log(\"input id has no geometry\");\n    //faulty input\n    library[targetID] = {\n      geometry: [  polarCopies(drawRectangle(10, 10), count, distanceX, distanceY),\n    ],\n      color: \"#FFB09D\",\n      tags: [],\n      bom:[],\n    };\n  }\n\n  console.log(result);\n  return library[targetID];\n});\n"
         },
         {
             "atomType": "Input",
@@ -116,7 +116,7 @@
         {
             "atomType": "Readme",
             "name": "README",
-            "x": 0.788263283108644,
+            "x": 0.7822878228782287,
             "y": 0.696048632218845,
             "uniqueID": 1715879627089,
             "ioValues": [
@@ -144,8 +144,8 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5433579335793358,
-            "y": 0.662613981762918,
+            "x": 0.5479704797047971,
+            "y": 0.6595744680851063,
             "uniqueID": 1719683605938,
             "ioValues": [
                 {
