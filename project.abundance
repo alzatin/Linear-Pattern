@@ -51,8 +51,8 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5279241306638567,
-            "y": 0.335423197492163,
+            "x": 0.4504361617763679,
+            "y": 0.2978723404255319,
             "uniqueID": 1717433443174,
             "ioValues": [
                 {
@@ -73,7 +73,7 @@
                 }
             ],
             "codeVersion": 1,
-            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\nconsole.log(library[geometry1].geometry[0])\nlet geometryToPattern; \nif (library[geometry1].geometry[0].clone){\n  geometryToPattern = library[geometry1].geometry[0]\n}\nelse{\n geometryToPattern = {\n  geometry: [drawRectangle(10,10)],\n  color:\"#FFB09D\",\n  tags: []\n}\n}\nconst polarCopies = (shape, count, x, y) => {\n    console.log(shape)\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = {geometry: [polarCopies(geometryToPattern,count, distanceX, distanceY)], color: library[geometry1].color, tags: library[geometry1].tags, plane: library[geometry1].plane }\nconsole.log(result)\nreturn result\n\n"
+            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\nconsole.log(library[geometry1].geometry[0])\nlet geometryToPattern; \nif (library[geometry1].geometry[0].clone){\n  geometryToPattern = library[geometry1].geometry[0]\n}\nelse{\n geometryToPattern = {\n  geometry: [drawRectangle(10,10)],\n  color:\"#FFB09D\",\n  tags: []\n}\n}\nconst polarCopies = (shape, count, x, y) => {\n    console.log(shape)\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = {geometry: [polarCopies(geometryToPattern,count, distanceX, distanceY)], color: library[geometry1].color, bom:library[geometry1].bom, tags: library[geometry1].tags, plane: library[geometry1].plane }\nconsole.log(result)\nreturn result\n\n"
         },
         {
             "atomType": "Input",
@@ -99,8 +99,8 @@
         {
             "atomType": "Extrude",
             "name": "Extrude",
-            "x": 0.42360379346680715,
-            "y": 0.670846394984326,
+            "x": 0.4123711340206186,
+            "y": 0.7355623100303951,
             "uniqueID": 1718651225884,
             "ioValues": [
                 {
@@ -116,8 +116,8 @@
         {
             "atomType": "Readme",
             "name": "README",
-            "x": 0.8061116965226554,
-            "y": 0.799373040752351,
+            "x": 0.8176050753370342,
+            "y": 0.723404255319149,
             "uniqueID": 1715879627089,
             "ioValues": [
                 {
@@ -139,8 +139,8 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5827186512118019,
-            "y": 0.7335423197492162,
+            "x": 0.5717684377478193,
+            "y": 0.7750759878419452,
             "uniqueID": 1719683605938,
             "ioValues": [
                 {
@@ -149,19 +149,19 @@
                 },
                 {
                     "name": "count",
-                    "ioValue": 10
+                    "ioValue": 8
                 },
                 {
                     "name": "distanceX",
-                    "ioValue": 5
+                    "ioValue": 10
                 },
                 {
                     "name": "distanceY",
-                    "ioValue": 5
+                    "ioValue": 10
                 }
             ],
             "codeVersion": 1,
-            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\nconsole.log(library[geometry1].geometry[0])\nlet geometryToPattern; \nif (library[geometry1].geometry[0].clone){\n  geometryToPattern = library[geometry1].geometry[0]\n}\nelse{\n geometryToPattern = {\n  geometry: [drawRectangle(10,10)],\n  color:\"#FFB09D\",\n  tags: []\n}\n}\nconst polarCopies = (shape, count, x, y) => {\n    console.log(shape)\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = {geometry: [polarCopies(geometryToPattern,count, distanceX, distanceY)], color: library[geometry1].color, tags: library[geometry1].tags, plane: library[geometry1].plane }\nconsole.log(result)\nreturn result\n\n"
+            "code": "//Inputs:[geometry1, count, distanceX, distanceY]\nconsole.log(library[geometry1].geometry[0])\nlet geometryToPattern; \nif (library[geometry1].geometry[0].clone){\n  geometryToPattern = library[geometry1].geometry[0]\n}\nelse{\n geometryToPattern = {\n  geometry: [drawRectangle(10,10)],\n  color:\"#FFB09D\",\n  tags: []\n}\n}\nconst polarCopies = (shape, count, x, y) => {\n    console.log(shape)\n      const base = shape;\n      const copies = [];\n      for (let i = 0; i < count; i++) {\n        copies.push(base.clone().translate(i * x, i * y));\n      }\n      console.log(copies)\n      let fusedPattern = chainFuse(copies);\n      return fusedPattern;\n    };\n   \n  \nlet result = {geometry: [polarCopies(geometryToPattern,count, distanceX, distanceY)], color: library[geometry1].color, bom:library[geometry1].bom, tags: library[geometry1].tags, plane: library[geometry1].plane }\nconsole.log(result)\nreturn result\n\n"
         }
     ],
     "allConnectors": [
