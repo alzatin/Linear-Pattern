@@ -70,10 +70,14 @@
                 {
                     "name": "distanceY",
                     "ioValue": 10
+                },
+                {
+                    "name": "backUpShape",
+                    "ioValue": 1721699099336
                 }
             ],
             "codeVersion": 1,
-            "code": "//Linear Pattern 1\n//Inputs:[inputID, count, distanceX, distanceY]\n\nconst bomAssembly = [];\n\nconst polarCopies = (shape, count, x, y) => {\n  console.log(shape);\n\n  const copies = [];\n  for (let i = 0; i < count; i++) {\n    copies.push(\n      actOnLeafs(shape, (leaf) => {\n        return {\n          geometry: [leaf.geometry[0].clone().translate(i * x, i * y)],\n          tags: leaf.tags,\n          plane: leaf.plane,\n          color: leaf.color,\n          bom: leaf.bom,\n        };\n      })\n    );\n\n    if (shape.bom.length > 0) {\n      console.log(\"pushing bom assembly\");\n      bomAssembly.push(...shape.bom);\n    }\n  }\n  let copyAssembly = copies;\n  return copyAssembly;\n};\n\nreturn started.then(() => {\n  console.log(inputID);\n  if (inputID !== 10) {\n    library[targetID] = {\n      geometry: polarCopies(library[inputID], count, distanceX, distanceY),\n      tags: [],\n      plane: library[inputID].plane,\n      color: library[inputID].color,\n      bom: bomAssembly,\n    };\n  } else {\n    console.log(\"input id is not a valid geometry\");\n    //faulty input\n    library[targetID] = {\n      geometry: [drawRectangle(10, 10)],\n      color: \"#FFB09D\",\n      tags: [],\n      bom: [],\n    };\n  }\n\n  console.log(result);\n  return library[targetID];\n});\n"
+            "code": "//Linear Pattern 1\n//Inputs:[inputID, count, distanceX, distanceY, backUpShape]\n\nconst bomAssembly = [];\n\nconst polarCopies = (shape, count, x, y) => {\n  console.log(shape);\n\n  const copies = [];\n  for (let i = 0; i < count; i++) {\n    copies.push(\n      actOnLeafs(shape, (leaf) => {\n        return {\n          geometry: [leaf.geometry[0].clone().translate(i * x, i * y)],\n          tags: leaf.tags,\n          plane: leaf.plane,\n          color: leaf.color,\n          bom: leaf.bom,\n        };\n      })\n    );\n\n    if (shape.bom.length > 0) {\n      console.log(\"pushing bom assembly\");\n      bomAssembly.push(...shape.bom);\n    }\n  }\n  let copyAssembly = copies;\n  return copyAssembly;\n};\n\nreturn started.then(() => {\n  console.log(inputID);\n  if (inputID !== 10) {\n    library[targetID] = {\n      geometry: polarCopies(library[inputID], count, distanceX, distanceY),\n      tags: [],\n      plane: library[inputID].plane,\n      color: library[inputID].color,\n      bom: bomAssembly,\n    };\n  } else {\n    console.log(\"input id is not a valid geometry\");\n    //faulty input\n    library[targetID] = {\n      geometry: polarCopies(library[backUpShape], count, distanceX, distanceY),\n      tags: [],\n      plane: library[backUpShape].plane,\n      color: library[backUpShape].color,\n      bom: bomAssembly,\n    };\n  }\n\n  console.log(result);\n  return library[targetID];\n});\n"
         },
         {
             "atomType": "Input",
@@ -99,8 +103,8 @@
         {
             "atomType": "Extrude",
             "name": "Extrude",
-            "x": 0.32885906040268453,
-            "y": 0.6352583586626139,
+            "x": 0.32502396931927136,
+            "y": 0.6261398176291794,
             "uniqueID": 1718651225884,
             "ioValues": [
                 {
@@ -116,13 +120,13 @@
         {
             "atomType": "Readme",
             "name": "README",
-            "x": 0.8705656759348034,
-            "y": 0.723404255319149,
+            "x": 0.775647171620326,
+            "y": 0.6990881458966566,
             "uniqueID": 1715879627089,
             "ioValues": [
                 {
                     "name": "geometry",
-                    "ioValue": 1719683605938
+                    "ioValue": 1721699099336
                 }
             ],
             "readmeText": "Readme text here",
@@ -142,56 +146,10 @@
             ]
         },
         {
-            "atomType": "Code",
-            "name": "Code",
-            "x": 0.6883988494726749,
-            "y": 0.6322188449848024,
-            "uniqueID": 1719683605938,
-            "ioValues": [
-                {
-                    "name": "inputID",
-                    "ioValue": 1721688252237
-                },
-                {
-                    "name": "count",
-                    "ioValue": 10
-                },
-                {
-                    "name": "distanceX",
-                    "ioValue": 10
-                },
-                {
-                    "name": "distanceY",
-                    "ioValue": 10
-                }
-            ],
-            "codeVersion": 1,
-            "code": "//Linear Pattern 1\n//Inputs:[inputID, count, distanceX, distanceY]\n\nconst bomAssembly = [];\n\nconst polarCopies = (shape, count, x, y) => {\n  console.log(shape);\n\n  const copies = [];\n  for (let i = 0; i < count; i++) {\n    copies.push(\n      actOnLeafs(shape, (leaf) => {\n        return {\n          geometry: [leaf.geometry[0].clone().translate(i * x, i * y)],\n          tags: leaf.tags,\n          plane: leaf.plane,\n          color: leaf.color,\n          bom: leaf.bom,\n        };\n      })\n    );\n\n    if (shape.bom.length > 0) {\n      console.log(\"pushing bom assembly\");\n      bomAssembly.push(...shape.bom);\n    }\n  }\n  let copyAssembly = copies;\n  return copyAssembly;\n};\n\nreturn started.then(() => {\n  console.log(inputID);\n  if (inputID !== 10) {\n    library[targetID] = {\n      geometry: polarCopies(library[inputID], count, distanceX, distanceY),\n      tags: [],\n      plane: library[inputID].plane,\n      color: library[inputID].color,\n      bom: bomAssembly,\n    };\n  } else {\n    console.log(\"input id is not a valid geometry\");\n    //faulty input\n    library[targetID] = {\n      geometry: [drawRectangle(10, 10)],\n      color: \"#FFB09D\",\n      tags: [],\n      bom: [],\n    };\n  }\n\n  console.log(result);\n  return library[targetID];\n});\n"
-        },
-        {
-            "atomType": "Add-BOM-Tag",
-            "name": "Add BOM Tag",
-            "x": 0.5186960690316396,
-            "y": 0.5258358662613982,
-            "uniqueID": 1721688252237,
-            "ioValues": [
-                {
-                    "name": "geometry",
-                    "ioValue": 1721699099336
-                }
-            ],
-            "BOMitem": {
-                "BOMitemName": "rounddowel",
-                "numberNeeded": 1,
-                "costUSD": 10,
-                "source": "www.example.com"
-            }
-        },
-        {
             "atomType": "Join",
             "name": "Assembly",
-            "x": 0.44678811121764145,
-            "y": 0.8085106382978723,
+            "x": 0.486097794822627,
+            "y": 0.6990881458966566,
             "uniqueID": 1721699099336,
             "ioValues": [
                 {
@@ -307,24 +265,17 @@
         },
         {
             "ap1Name": "geometry",
-            "ap2Name": "geometry",
+            "ap2Name": "backUpShape",
             "ap2Primary": false,
-            "ap1ID": 1719683605938,
-            "ap2ID": 1715879627089
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "inputID",
-            "ap2Primary": false,
-            "ap1ID": 1721688252237,
-            "ap2ID": 1719683605938
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "geometry",
-            "ap2Primary": true,
             "ap1ID": 1721699099336,
-            "ap2ID": 1721688252237
+            "ap2ID": 1717433443174
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": false,
+            "ap1ID": 1721699099336,
+            "ap2ID": 1715879627089
         },
         {
             "ap1Name": "geometry",
