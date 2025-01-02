@@ -11,7 +11,7 @@
         },
         {
             "name": "number of repeats",
-            "ioValue": 5
+            "ioValue": 6
         },
         {
             "name": "yOffset",
@@ -72,17 +72,17 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5608856088560885,
-            "y": 0.5818181818181818,
+            "x": 0.5562730627306273,
+            "y": 0.5696969696969697,
             "uniqueID": 1735854576814,
             "ioValues": [
                 {
                     "name": "shape",
-                    "ioValue": 1735856483453
+                    "ioValue": 10
                 },
                 {
                     "name": "times",
-                    "ioValue": 5
+                    "ioValue": 6
                 },
                 {
                     "name": "xOffset",
@@ -147,6 +147,13 @@
     "allConnectors": [
         {
             "ap1Name": "number or geometry",
+            "ap2Name": "shape",
+            "ap2Primary": false,
+            "ap1ID": 1735854499307,
+            "ap2ID": 1735854576814
+        },
+        {
+            "ap1Name": "number or geometry",
             "ap2Name": "times",
             "ap2Primary": false,
             "ap1ID": 1735854505916,
@@ -172,13 +179,6 @@
             "ap2Primary": true,
             "ap1ID": 1735854640499,
             "ap2ID": 1735856483453
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "shape",
-            "ap2Primary": false,
-            "ap1ID": 1735856483453,
-            "ap2ID": 1735854576814
         },
         {
             "ap1Name": "number or geometry",
