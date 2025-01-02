@@ -11,15 +11,15 @@
         },
         {
             "name": "number of repeats",
-            "ioValue": 10
+            "ioValue": 5
         },
         {
             "name": "yOffset",
-            "ioValue": 10
+            "ioValue": 0
         },
         {
             "name": "xOffset",
-            "ioValue": 10
+            "ioValue": 13
         }
     ],
     "description": "Molecules provide an organizational structure to contain atoms. Double click on a molecule to enter it. Use the up arrow in the upper right hand corner of the screen to go up one level.",
@@ -31,7 +31,12 @@
             "x": 0.98,
             "y": 0.5,
             "uniqueID": 1735854473449,
-            "ioValues": [],
+            "ioValues": [
+                {
+                    "name": "number or geometry",
+                    "ioValue": 1735854576814
+                }
+            ],
             "description": "Connect geometry here to make it available in the next level up. "
         },
         {
@@ -67,8 +72,8 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5636531365313653,
-            "y": 0.5666666666666667,
+            "x": 0.5608856088560885,
+            "y": 0.5818181818181818,
             "uniqueID": 1735854576814,
             "ioValues": [
                 {
@@ -76,25 +81,21 @@
                     "ioValue": 1735856483453
                 },
                 {
-                    "name": "distance",
-                    "ioValue": 10
-                },
-                {
                     "name": "times",
-                    "ioValue": 10
+                    "ioValue": 5
                 },
                 {
                     "name": "xOffset",
-                    "ioValue": 10
+                    "ioValue": 13
                 },
                 {
                     "name": "yOffset",
-                    "ioValue": 10
+                    "ioValue": 0
                 }
             ],
             "description": "Defines a Replicad code block.",
             "codeVersion": 1,
-            "code": " \n//Inputs:[shape, distance, times, xOffset, yOffset];\n\n\nconst polarCopies = (shape1, count, xOffset, yOffset) => {\n \n  const base = shape1.geometry[0].clone()\n \n  const copies = [];\n  \n  for (let i = 0; i < count; i++) {\n    copies.push(base.clone().translate(i*xOffset, i*yOffset\n                  ));\n  }\n  console.log(copies)\n  return copies;\n};\n\nconst assembleAll = async (shapes) => {\n let assembledShape = await Assembly(shapes)\n  console.log(\"assembly\")\n  console.log(assembledShape)\nreturn assembledShape;\n};\n\n\n return assembleAll(polarCopies(library[shape], times, xOffset, yOffset))\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
+            "code": " \n//Inputs:[shape, times, xOffset, yOffset];\n\n\nconst polarCopies = (shape1, count, xOffset, yOffset) => {\n \n  const base = shape1.geometry[0].clone()\n \n  const copies = [];\n  \n  for (let i = 0; i < count; i++) {\n    copies.push(base.clone().translate(i*xOffset, i*yOffset\n                  ));\n  }\n  console.log(copies)\n  return copies;\n};\n\nconst assembleAll = async (shapes) => {\n let assembledShape = await Assembly(shapes)\n  console.log(\"assembly\")\n  console.log(assembledShape)\nreturn assembledShape;\n};\n\n\n return assembleAll(polarCopies(library[shape], times, xOffset, yOffset))\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
         },
         {
             "atomType": "Rectangle",
@@ -117,8 +118,8 @@
         {
             "atomType": "Extrude",
             "name": "Extrude",
-            "x": 0.35885608856088563,
-            "y": 0.40909090909090906,
+            "x": 0.3542435424354244,
+            "y": 0.41515151515151516,
             "uniqueID": 1735856483453,
             "ioValues": [
                 {
@@ -160,6 +161,13 @@
         },
         {
             "ap1Name": "geometry",
+            "ap2Name": "number or geometry",
+            "ap2Primary": false,
+            "ap1ID": 1735854576814,
+            "ap2ID": 1735854473449
+        },
+        {
+            "ap1Name": "geometry",
             "ap2Name": "geometry",
             "ap2Primary": true,
             "ap1ID": 1735854640499,
@@ -182,6 +190,6 @@
     ],
     "unitsKey": "Inches",
     "fileTypeVersion": 1,
-    "compiledBom": {},
+    "compiledBom": [],
     "filetypeVersion": 1
 }
