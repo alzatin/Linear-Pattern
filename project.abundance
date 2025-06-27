@@ -11,7 +11,7 @@
         },
         {
             "name": "Dist",
-            "ioValue": 15
+            "ioValue": 16
         },
         {
             "name": "Geometry",
@@ -27,7 +27,12 @@
             "x": 0.98,
             "y": 0.5,
             "uniqueID": 1739925623486,
-            "ioValues": [],
+            "ioValues": [
+                {
+                    "name": "number or geometry",
+                    "ioValue": 1739925625776
+                }
+            ],
             "description": "Connect geometry here to make it available in the next level up. "
         },
         {
@@ -47,7 +52,7 @@
                 },
                 {
                     "name": "Dist",
-                    "ioValue": 10
+                    "ioValue": 16
                 }
             ],
             "description": "Defines a Replicad code block.",
@@ -75,7 +80,7 @@
         {
             "atomType": "Input",
             "name": "Number",
-            "x": 0.04,
+            "x": 0.021449999999999997,
             "y": 0.32869080779944293,
             "uniqueID": 1739926573683,
             "ioValues": [],
@@ -85,7 +90,7 @@
         {
             "atomType": "Input",
             "name": "Dist",
-            "x": 0.04,
+            "x": 0.021449999999999997,
             "y": 0.6434540389972144,
             "uniqueID": 1739926583508,
             "ioValues": [],
@@ -95,7 +100,7 @@
         {
             "atomType": "Input",
             "name": "Geometry",
-            "x": 0.04,
+            "x": 0.021449999999999997,
             "y": 0.9108635097493036,
             "uniqueID": 1739926589843,
             "ioValues": [],
