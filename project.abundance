@@ -10,11 +10,19 @@
             "ioValue": 4
         },
         {
-            "name": "Dist",
-            "ioValue": 16
+            "name": "Geometry",
+            "ioValue": 10
         },
         {
-            "name": "Geometry",
+            "name": "distX",
+            "ioValue": 10
+        },
+        {
+            "name": "distY",
+            "ioValue": 10
+        },
+        {
+            "name": "distZ",
             "ioValue": 10
         }
     ],
@@ -30,42 +38,10 @@
             "ioValues": [
                 {
                     "name": "number or geometry",
-                    "ioValue": 1739925625776
+                    "ioValue": "13895ac1-05d3-473f-8d26-118e7da2db11"
                 }
             ],
             "description": "Connect geometry here to make it available in the next level up. "
-        },
-        {
-            "atomType": "Code",
-            "name": "Code",
-            "x": 0.4650602409638554,
-            "y": 0.39759036144578314,
-            "uniqueID": 1739925625776,
-            "ioValues": [
-                {
-                    "name": "Shape",
-                    "ioValue": 1739925687796
-                },
-                {
-                    "name": "Number",
-                    "ioValue": 10
-                },
-                {
-                    "name": "distX",
-                    "ioValue": 0
-                },
-                {
-                    "name": "distY",
-                    "ioValue": 0
-                },
-                {
-                    "name": "distZ",
-                    "ioValue": 10
-                }
-            ],
-            "description": "Defines a Replicad code block.",
-            "codeVersion": 1,
-            "code": "//Inputs:[Shape, Number, distX, distY, distZ];\n\n\nlet shapesArray = [];\nfor (let i = 0; i < Number; i++) {\n    let rotatedShape = await Move(Shape, distX * i, distY * i, distZ * i);\n    shapesArray.push(rotatedShape);\n}\n\nlet assembledShape = await Assembly(shapesArray)\n\nreturn assembledShape;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
         },
         {
             "atomType": "Rectangle",
@@ -97,16 +73,6 @@
         },
         {
             "atomType": "Input",
-            "name": "Dist",
-            "x": 0.024749999999999998,
-            "y": 0.6434540389972144,
-            "uniqueID": 1739926583508,
-            "ioValues": [],
-            "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
-            "type": "number"
-        },
-        {
-            "atomType": "Input",
             "name": "Geometry",
             "x": 0.024749999999999998,
             "y": 0.9108635097493036,
@@ -118,17 +84,17 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.3863453815261044,
-            "y": 0.7048192771084337,
+            "x": 0.49242424242424243,
+            "y": 0.4337349397590362,
             "uniqueID": "13895ac1-05d3-473f-8d26-118e7da2db11",
             "ioValues": [
                 {
                     "name": "Shape",
-                    "ioValue": 1739925687796
+                    "ioValue": 10
                 },
                 {
                     "name": "Number",
-                    "ioValue": 10
+                    "ioValue": 4
                 },
                 {
                     "name": "distX",
@@ -136,7 +102,7 @@
                 },
                 {
                     "name": "distY",
-                    "ioValue": 0
+                    "ioValue": 10
                 },
                 {
                     "name": "distZ",
@@ -145,37 +111,81 @@
             ],
             "description": "Defines a Replicad code block.",
             "codeVersion": 1,
-            "code": "//Inputs:[Shape, Number, distX, distY, distZ];\n\n\nlet shapesArray = [];\nfor (let i = 0; i < Number; i++) {\n    let rotatedShape = await Move(Shape, distX * i, distY * i,10);\n    shapesArray.push(rotatedShape);\n}\n\nlet assembledShape = await Assembly(shapesArray)\n\nreturn assembledShape;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
+            "code": "//Inputs:[Shape, Number, distX, distY, distZ];\n\n\nlet shapesArray = [];\nfor (let i = 0; i < Number; i++) {\n    let rotatedShape = await Move(Shape, distX * i, distY * i,distZ * i);\n    shapesArray.push(rotatedShape);\n}\n\nlet assembledShape = await Assembly(shapesArray)\n\nreturn assembledShape;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
+        },
+        {
+            "atomType": "Input",
+            "name": "distX",
+            "x": 0.024749999999999998,
+            "y": 0.5,
+            "uniqueID": "5aa87fec-8940-4c9a-aade-96bf3c091e0e",
+            "ioValues": [],
+            "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
+            "type": "number"
+        },
+        {
+            "atomType": "Input",
+            "name": "distY",
+            "x": 0.024749999999999998,
+            "y": 0.6174698795180722,
+            "uniqueID": "fb85f0d8-710e-4613-ae7d-5a2f0c75b069",
+            "ioValues": [],
+            "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
+            "type": "number"
+        },
+        {
+            "atomType": "Input",
+            "name": "distZ",
+            "x": 0.024749999999999998,
+            "y": 0.7650602409638555,
+            "uniqueID": "6ad4555c-4322-4179-b2a8-687c05120143",
+            "ioValues": [],
+            "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
+            "type": "number"
         }
     ],
     "allConnectors": [
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "number or geometry",
-            "ap2Primary": false,
-            "ap1ID": 1739925625776,
-            "ap2ID": 1739925623486
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "Shape",
-            "ap2Primary": false,
-            "ap1ID": 1739925687796,
-            "ap2ID": 1739925625776
-        },
-        {
-            "ap1Name": "geometry",
-            "ap2Name": "Shape",
-            "ap2Primary": false,
-            "ap1ID": 1739925687796,
-            "ap2ID": "13895ac1-05d3-473f-8d26-118e7da2db11"
-        },
         {
             "ap1Name": "number or geometry",
             "ap2Name": "Number",
             "ap2Primary": false,
             "ap1ID": 1739926573683,
-            "ap2ID": 1739925625776
+            "ap2ID": "13895ac1-05d3-473f-8d26-118e7da2db11"
+        },
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "Shape",
+            "ap2Primary": false,
+            "ap1ID": 1739926589843,
+            "ap2ID": "13895ac1-05d3-473f-8d26-118e7da2db11"
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "number or geometry",
+            "ap2Primary": false,
+            "ap1ID": "13895ac1-05d3-473f-8d26-118e7da2db11",
+            "ap2ID": 1739925623486
+        },
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "distX",
+            "ap2Primary": false,
+            "ap1ID": "5aa87fec-8940-4c9a-aade-96bf3c091e0e",
+            "ap2ID": "13895ac1-05d3-473f-8d26-118e7da2db11"
+        },
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "distY",
+            "ap2Primary": false,
+            "ap1ID": "fb85f0d8-710e-4613-ae7d-5a2f0c75b069",
+            "ap2ID": "13895ac1-05d3-473f-8d26-118e7da2db11"
+        },
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "distZ",
+            "ap2Primary": false,
+            "ap1ID": "6ad4555c-4322-4179-b2a8-687c05120143",
+            "ap2ID": "13895ac1-05d3-473f-8d26-118e7da2db11"
         }
     ],
     "unitsKey": "MM",
