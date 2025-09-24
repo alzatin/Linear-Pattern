@@ -81,8 +81,8 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.49242424242424243,
-            "y": 0.4337349397590362,
+            "x": 0.4901746724890829,
+            "y": 0.7515151515151516,
             "uniqueID": "13895ac1-05d3-473f-8d26-118e7da2db11",
             "ioValues": [
                 {
@@ -140,9 +140,70 @@
             "uniqueID": "6ad4555c-4322-4179-b2a8-687c05120143",
             "ioValues": [],
             "type": "number"
+        },
+        {
+            "atomType": "Readme",
+            "name": "README",
+            "x": 0.7794759825327511,
+            "y": 0.2787878787878788,
+            "uniqueID": "1db1e0de-e2c3-45a0-85df-f35ffb006f46",
+            "ioValues": [],
+            "readMeText": "Readme text here",
+            "global": true
+        },
+        {
+            "atomType": "Code",
+            "name": "Code",
+            "x": 0.6091703056768559,
+            "y": 0.28787878787878785,
+            "uniqueID": "9199ca89-75f9-4ea4-8c98-c288e2921dcb",
+            "ioValues": [
+                {
+                    "name": "Number",
+                    "ioValue": 5,
+                    "currentEquation": "5"
+                },
+                {
+                    "name": "distX",
+                    "ioValue": 15,
+                    "currentEquation": "15"
+                },
+                {
+                    "name": "distY",
+                    "ioValue": 2,
+                    "currentEquation": "2"
+                },
+                {
+                    "name": "distZ",
+                    "ioValue": 0,
+                    "currentEquation": "0"
+                }
+            ],
+            "codeVersion": 1,
+            "code": "//Inputs:[Shape, Number, distX, distY, distZ];\n\n\nlet shapesArray = [];\nfor (let i = 0; i < Number; i++) {\n    let rotatedShape = await Move(Shape, distX * i, distY * i,distZ * i);\n    shapesArray.push(rotatedShape);\n}\n\nlet assembledShape = await Assembly(shapesArray)\n\nreturn assembledShape;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
+        },
+        {
+            "atomType": "Extrude",
+            "name": "Extrude",
+            "x": 0.39847161572052403,
+            "y": 0.396969696969697,
+            "uniqueID": "c4c030d6-128d-48bd-bfe3-de9fecd78a16",
+            "ioValues": [
+                {
+                    "name": "height",
+                    "ioValue": 10,
+                    "currentEquation": null
+                }
+            ]
         }
     ],
     "allConnectors": [
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap1ID": 1739925687796,
+            "ap2ID": "c4c030d6-128d-48bd-bfe3-de9fecd78a16"
+        },
         {
             "ap1Name": "number or geometry",
             "ap2Name": "Number",
@@ -178,6 +239,18 @@
             "ap2Name": "distZ",
             "ap1ID": "6ad4555c-4322-4179-b2a8-687c05120143",
             "ap2ID": "13895ac1-05d3-473f-8d26-118e7da2db11"
+        },
+        {
+            "ap1Name": "output",
+            "ap2Name": "geometry",
+            "ap1ID": "9199ca89-75f9-4ea4-8c98-c288e2921dcb",
+            "ap2ID": "1db1e0de-e2c3-45a0-85df-f35ffb006f46"
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "Shape",
+            "ap1ID": "c4c030d6-128d-48bd-bfe3-de9fecd78a16",
+            "ap2ID": "9199ca89-75f9-4ea4-8c98-c288e2921dcb"
         }
     ],
     "unitsKey": "MM",
