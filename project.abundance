@@ -143,8 +143,7 @@
         },
         {
           "name": "distX",
-          "ioValue": 20,
-          "currentEquation": "20"
+          "ioValue": 20
         },
         {
           "name": "distY",
@@ -161,8 +160,8 @@
     },
     {
       "atomType": "Code",
-      "x": 0.39973958333333337,
-      "y": 0.6514285714285714,
+      "x": 0.4012178619756428,
+      "y": 0.6829268292682927,
       "uniqueID": "id-67",
       "ioValues": [
         {
@@ -210,8 +209,7 @@
         },
         {
           "name": "zDist",
-          "ioValue": 9,
-          "currentEquation": "9"
+          "ioValue": 9
         }
       ]
     },
